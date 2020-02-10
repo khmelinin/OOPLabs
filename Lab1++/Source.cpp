@@ -1,15 +1,33 @@
 #include <iostream>
+#include <string>
 
 using namespace std;
 
-int main() 
+int main()
 {
-
-
-	int x = 148;
+	int x = 1;
 	/*cin >> x;*/
-	for (i = sizeof(x) * 8 - 1; i >= 0; --i)
+	if (x < 0)
 	{
-		cout << (int)((x >> i) & 1);
+		x = x * (-1);
+		cout << "new x = " << x << endl;
+		cout << "1";
+		for (int i = sizeof(x) * 8 - 1; i >= 0; --i)
+		{
+			if (i != 31)
+				cout << (int)((x >> i) & 1);
+		}
+
 	}
+
+
+
+	if(x>=0)
+	{
+		for (int i = sizeof(x) * 8 - 1; i >= 0; --i)
+		{
+			cout << (int)((x >> i) & 1);
+		}
+	}
+
 }
