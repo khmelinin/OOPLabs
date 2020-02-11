@@ -33,6 +33,5 @@ int main()
 	
 	int a = -43, b=1;
 	PlusOne(a, b);
-	cout << "PlusOne = " << a << endl;
 
 }

@@ -6,7 +6,7 @@ namespace Lab1Sharp
     {
         static void PlusOne(ref int a, ref int b)
         {
-            a = a ^ b;
+            a=a^b;
         }
         static void Main(string[] args)
         {
