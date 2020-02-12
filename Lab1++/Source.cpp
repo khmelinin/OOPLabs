@@ -8,9 +8,9 @@ void PlusOne(int& a)
     for (int i = 1; ((a ^= i) & i) == 0; i <<= 1);
 }
 
-bool Camparing(int a, int b)
+bool Comparing(int a, int b)
 {
-    return a & b;
+    return (a ^ b) == 0;
 }
 
 int main()
@@ -20,5 +20,5 @@ int main()
     PlusOne(a);
 
     cout << a << endl;
-    cout << "Camparing = " << Camparing(a, b) << endl;
+    cout << "Camparing = " << Comparing(a, b) << endl;
 }
