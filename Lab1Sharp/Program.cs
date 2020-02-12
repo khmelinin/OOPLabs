@@ -16,10 +16,17 @@ namespace Lab1Sharp
 
         static void Main(string[] args)
         {
-            int a = -43, b = -42;
+            int a = -43, aa = 75, aaa = 63;
+            int b = 48, bb = 69, bbb = 24;
+            int c = 48, cc = 78, ccc = 25;
             PlusOne(ref a);
-            bool c = Comparing(a, b);
-           
+            PlusOne(ref aa);
+            PlusOne(ref aaa);
+
+            bool ComparingBC = Comparing(b, c);
+            bool ComparingBBCC = Comparing(bb, cc);
+            bool ComparingBBBCCC = Comparing(bbb, ccc);
+
         }
     }
 }
