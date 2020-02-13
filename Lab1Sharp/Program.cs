@@ -17,10 +17,10 @@ namespace Lab1Sharp
                 ii = 1 << i;
                 aa = a & ii;
                 bb = b & ii;
-                //if (aa ^ bb)
-                //{
-                //    return false;
-                //}
+                if ((aa ^ bb)==1)
+                {
+                    return false;
+                }
             }
             return true;
         }
@@ -37,7 +37,6 @@ namespace Lab1Sharp
             bool ComparingBC = Comparing(b, c);
             bool ComparingBBCC = Comparing(bb, cc);
             bool ComparingBBBCCC = Comparing(bbb, ccc);
-            Console.WriteLine(3 ^ 9);
 
         }
     }

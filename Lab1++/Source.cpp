@@ -21,6 +21,7 @@ int main()
     bool ComparingBBBCCC = Comparing(bbb, ccc);
 
     cout << "b=c - " << ComparingBBBCCC << endl;
+    cout << (3 ^ 9) << endl;
 
 }
 
