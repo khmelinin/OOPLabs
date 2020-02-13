@@ -11,7 +11,18 @@ namespace Lab1Sharp
 
         static bool Comparing(int a, int b)
         {
-            return (a ^ b) == 0;
+            int aa, bb, ii;
+            for (int i = 0; i < 32; i++)
+            {
+                ii = 1 << i;
+                aa = a & ii;
+                bb = b & ii;
+                //if (aa ^ bb)
+                //{
+                //    return false;
+                //}
+            }
+            return true;
         }
 
         static void Main(string[] args)
@@ -26,6 +37,7 @@ namespace Lab1Sharp
             bool ComparingBC = Comparing(b, c);
             bool ComparingBBCC = Comparing(bb, cc);
             bool ComparingBBBCCC = Comparing(bbb, ccc);
+            Console.WriteLine(3 ^ 9);
 
         }
     }
