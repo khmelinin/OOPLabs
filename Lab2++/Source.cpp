@@ -3,8 +3,8 @@ using namespace std;
 
 int main()
 {
-	Str b;
+	char b[] = { "ll" };
 	Str a("hello");
-	a.Del("o");
+	a.Del(b);
 	a.print();
 }

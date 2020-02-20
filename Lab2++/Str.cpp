@@ -1,31 +1,80 @@
 #include "Str.h"
 
-Str::Str(string s)
+Str::Str(const char s[])
 {
-	str = s;
-}
-
-string Str::getStr() const
-{
-	return str;
-}
-
-void Str::setStr(string str)
-{
-	this->str = str;
+	size = strlen(s);
+	str = new char [size];
+	for (int i = 0; i < size; i++)
+	{
+		str[i] = s[i];
+	}
 }
 
 void Str::print()
 {
-	cout << str << endl;
+	for (int i = 0; i < size; i++)
+	{
+		cout << str[i];
+	}
+	cout << endl;
+}
+//------------------------------------------------------------------------
+int Str::Find(const char s[])
+{
+	int k = 0;
+	int index=-1;
+	int SSize = strlen(s);
+	for (int i = 0; i < size; i++)
+
+	{
+		if (str[i] == s[0])
+		{
+			for (int j = 0; j < strlen(s) + 1; j++)
+			{
+				if (str[i] == s[j])
+					k++;
+			}
+		}
+		if (k == strlen(s))
+		{
+			index = i;
+			return index;
+		}
+	}
+	return index;
+}
+//------------------------------------------------------------------------
+void Str::Add(const char s[])
+{
+	int j = size;
+	size += strlen(s);
+	for (int i = j; i < size; i++)
+	{
+		str[i] = s[i - j];
+	}
 }
 
-void Str::Add(string s)
+void Str::Del(const char s[])
 {
-	str += s;
+	for (int i = Find(s); i < (size-strlen(s)); i++)
+	{
+		str[i] = str[i + strlen(s)];
+	}
+	size -= (strlen(s));
 }
 
-void Str::Del(string s)
+int Str::getSize() const
 {
-	str.erase(str.find(s), str.find(s) + s.size());
+	return size;
+}
+//--------------------------------------------------
+int Str::Numbers() const
+{
+	int n = 0;
+	for (int i = 0; i < size; i++)
+	{
+		if (str[i] >= 48 && str[i] <= 57)
+			n++;
+	}
+	return n;
 }

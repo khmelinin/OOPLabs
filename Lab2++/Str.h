@@ -5,14 +5,16 @@ using namespace std;
 
 class Str
 {
-	string str;
+	int size = 0;
+	char* str = nullptr;;
 public:
 	Str() = default;
-	Str(string s);
-	string getStr()const;
-	void setStr(string str);
+	Str(const char s[]);
 	void print();
-	void Add(string s);
-	void Del(string s);
+	int Find(const char s[]);
+	void Add(const char s[]);
+	void Del(const char s[]);
+	int getSize()const;
+	int Numbers()const;
 };
 
