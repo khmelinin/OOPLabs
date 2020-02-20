@@ -11,5 +11,8 @@ public:
 	Str(string s);
 	string getStr()const;
 	void setStr(string str);
+	void print();
+	void Add(string s);
+	void Del(string s);
 };
 
