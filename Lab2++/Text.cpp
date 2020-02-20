@@ -39,16 +39,6 @@ Str Text::Biggest()
 	return text[index];
 }
 
-int Text::NumbersPectentage() const
-{
-	int n= 0;
-	for (int i = 0; i < size; i++)
-	{
-		n += text[i].Numbers();
-	}
-	return 100 * n / Elements();
-}
-
 int Text::Elements()
 {
 	int e = 0;
@@ -57,4 +47,15 @@ int Text::Elements()
 		e += text[i].getSize();
 	}
 	return e;
+}
+
+int Text::NumbersPectentage() const
+{
+	int e = Elements();
+	int n= 0;
+	for (int i = 0; i < size; i++)
+	{
+		n += text[i].Numbers();
+	}
+	return 100 * n / e;
 }
