@@ -6,13 +6,14 @@ class Text
 	Str *text=nullptr;
 public:
 	Text() = default;
+	~Text();
 	Text(Str a);
 	void Add(Str a);
 	void Del();
 	void Clear();
 	Str Biggest();
-	int Elements();
-	int NumbersPectentage()const;
+	int Elements()const;
+	double NumbersPectentage()const;
 	
 };
 

@@ -1,5 +1,15 @@
 #include "Text.h"
 
+Text::~Text()
+{
+	for (int i = 0; i < size; i++)
+	{
+		text[i].~Str();
+	}
+	delete[]text;
+	size = 0;
+}
+
 Text::Text(Str a)
 {
 	size++;
@@ -39,7 +49,7 @@ Str Text::Biggest()
 	return text[index];
 }
 
-int Text::Elements()
+int Text::Elements()const
 {
 	int e = 0;
 	for (int i = 0; i < size; i++)
@@ -49,7 +59,7 @@ int Text::Elements()
 	return e;
 }
 
-int Text::NumbersPectentage() const
+double Text::NumbersPectentage() const
 {
 	int e = Elements();
 	int n= 0;

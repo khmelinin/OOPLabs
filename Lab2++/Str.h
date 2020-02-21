@@ -9,6 +9,7 @@ class Str
 	char* str = nullptr;;
 public:
 	Str() = default;
+	~Str();
 	Str(const char s[]);
 	void print();
 	int Find(const char s[]);

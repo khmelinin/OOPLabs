@@ -1,5 +1,11 @@
 #include "Str.h"
 
+Str::~Str()
+{
+	size = 0;
+	delete[]str;
+}
+
 Str::Str(const char s[])
 {
 	size = strlen(s);
