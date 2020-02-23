@@ -1,12 +1,11 @@
 #pragma once
 #include <iostream>
-#include <string>
 using namespace std;
 
 class Str
 {
 	int size = 0;
-	char* str = nullptr;;
+	char* str = nullptr;
 public:
 	Str() = default;
 	~Str();
@@ -15,7 +14,7 @@ public:
 	int Find(const char s[]);
 	void Add(const char s[]);
 	void Del(const char s[]);
+	//bool Replace(const char s, const char ss);
 	int getSize()const;
 	int Numbers()const;
 };
-

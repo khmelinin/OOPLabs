@@ -69,6 +69,19 @@ void Str::Del(const char s[])
 	size -= (strlen(s));
 }
 
+//bool Str::Replace(const char s, const char ss)
+//{
+//	for (int i = 0; i < size; i++)
+//	{
+//		if (str[i] == s)
+//		{
+//			str[i] = ss;
+//			return 1;
+//		}
+//	}
+//	return 0;
+//}
+
 int Str::getSize() const
 {
 	return size;
