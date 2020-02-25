@@ -11,14 +11,14 @@ namespace Lab2SharpLib
             size = 0;
             str = new char[size];
         }
-        Str(char[]s)
-        {
-            size = 
-            str = new char[size];
-            for (int i = 0; i < size; i++)
-            {
-                str[i] = s[i];
-            }
-        }
+        //Str(char[]s)
+        //{
+        //    size = 
+        //    str = new char[size];
+        //    for (int i = 0; i < size; i++)
+        //    {
+        //        str[i] = s[i];
+        //    }
+        //}
     }
 }
