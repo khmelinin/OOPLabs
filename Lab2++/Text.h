@@ -11,7 +11,6 @@ public:
 	void Add(Str a);
 	void Del();
 	void Clear();
-	//void Replace(const char s, const char ss);
 	Str Biggest();
 	int Elements()const;
 	double NumbersPectentage()const;

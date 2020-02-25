@@ -35,17 +35,6 @@ void Text::Clear()
 	size = 0;
 }
 
-//void Text::Replace(const char s, const char ss)
-//{
-//	for (int i = 0; i < size; i++)
-//	{
-//		if (text[i].Replace(s, ss) == 1)
-//		{
-//			return;
-//		}
-//	}
-//}
-
 Str Text::Biggest()
 {
 	int k = 0, index = 0;
