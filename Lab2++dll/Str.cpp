@@ -30,7 +30,7 @@ int Str::Find(const char s[])
 {
 	int k = 0;
 	int index = -1;
-	int SSize = strlen(s);
+	
 	for (int i = 0; i < size; i++)
 
 	{

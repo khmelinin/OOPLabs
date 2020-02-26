@@ -1,12 +1,14 @@
 ﻿using System;
 
-namespace Lab2Sharp
+namespace Lab2SharpLib
 {
     class Program
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            char[] hello = { 'h', 'e', 'l', 'l', 'o', ' ' };
+            Str a(hello);
         }
+            
     }
 }

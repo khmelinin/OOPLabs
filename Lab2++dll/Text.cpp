@@ -60,7 +60,7 @@ int Text::Elements()const
 	return e;
 }
 
-double Text::NumbersPectentage() const
+double Text::NumbersPerctentage() const
 {
 	int e = Elements();
 	int n = 0;

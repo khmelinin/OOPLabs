@@ -33,15 +33,20 @@ namespace Lab2SharpLib
 			}
 			return index;
 		}
-
+		
 		public void Add(char[] s)
 		{
-			for (int i = str.Length; i < (str.Length + s.Length); i++)
+			int j = str.Length;
+			
+			for (int i = j; i < (j + s.Length); i++)
 			{
 				str[i] = s[i - str.Length];
 			}
 		}
-
+		public int getSize() 
+		{
+			return str.Length;
+		}
 		public void Del(char[] s)
 		{
 			for (int i = Find(s); i < (str.Length - s.Length); i++)

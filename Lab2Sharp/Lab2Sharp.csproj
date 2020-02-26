@@ -5,4 +5,10 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Reference Include="Lab2SharpLib">
+      <HintPath>..\Lab2SharpLib\bin\Debug\netstandard2.0\Lab2SharpLib.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+
 </Project>

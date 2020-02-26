@@ -13,5 +13,5 @@ public:
 	void Clear();
 	Str Biggest();
 	int Elements()const;
-	double NumbersPectentage()const;
+	double NumbersPerctentage()const;
 };
