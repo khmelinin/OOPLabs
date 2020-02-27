@@ -8,8 +8,8 @@ class Str
 	char* str = nullptr;
 public:
 	Str() = default;
-	~Str();
 	Str(const char s[]);
+	~Str();
 	void print();
 	int Find(const char s[]);
 	void Add(const char s[]);

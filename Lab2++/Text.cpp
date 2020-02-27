@@ -1,4 +1,5 @@
 #include "Text.h"
+using namespace std;
 
 Text::~Text()
 {
@@ -6,8 +7,8 @@ Text::~Text()
 	{
 		text[i].~Str();
 	}
-	delete[]text;
 	size = 0;
+	delete[]text;
 }
 
 Text::Text(Str a)

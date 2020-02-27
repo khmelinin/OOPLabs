@@ -1,10 +1,12 @@
 #include "Str.h"
+using namespace std;
 
 Str::~Str()
 {
 	size = 0;
 	delete[]str;
 }
+
 
 Str::Str(const char s[])
 {
@@ -62,7 +64,8 @@ void Str::Add(const char s[])
 
 void Str::Del(const char s[])
 {
-	for (int i = Find(s); i < (size-strlen(s)); i++)
+	int ii = size - strlen(s);
+	for (int i = Find(s); i < ii; i++)
 	{
 		str[i] = str[i + strlen(s)];
 	}
