@@ -140,11 +140,15 @@
   <ItemGroup>
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="Str.cpp" />
+    <ClCompile Include="Str1.cpp" />
     <ClCompile Include="Text.cpp" />
+    <ClCompile Include="Text1.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Str.h" />
+    <ClInclude Include="Str1.h" />
     <ClInclude Include="Text.h" />
+    <ClInclude Include="Text1.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

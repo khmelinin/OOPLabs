@@ -3,14 +3,18 @@ using namespace std;
 
 int main()
 {
-	char b[] = { "ll" };
+	
 	Str a("hell45180o");
-	Str aa("world123");
+	int res = a.Numbers();
+	cout << res << endl;
+	/*Str aa("world123");
 	Text t(a);
 	t.Add(aa);
 
-	int e = t.Elements();
-	double n = t.NumbersPectentage();
+	a.print();*/
+
+	//int e = t.Elements();
+	//double n = t.NumbersPectentage();
 
 	system("pause");
 

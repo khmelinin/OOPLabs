@@ -10,7 +10,8 @@ Str::~Str()
 
 Str::Str(const char s[])
 {
-	size = strlen(s);
+	size = strlen(s)+1;
+	cout << "strlen(s) = " << size << endl;
 	str = new char [size];
 	for (int i = 0; i < size; i++)
 	{
@@ -80,10 +81,12 @@ int Str::getSize() const
 int Str::Numbers() const
 {
 	int n = 0;
+
 	for (int i = 0; i < size; i++)
 	{
 		if (str[i] >= 48 && str[i] <= 57)
 			n++;
 	}
+
 	return n;
 }
