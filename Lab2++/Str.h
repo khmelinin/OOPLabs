@@ -14,6 +14,6 @@ public:
 	int Find(const char s[]);
 	void Add(const char s[]);
 	void Del(const char s[]);
-	int getSize()const;
-	int Numbers()const;
+	int getSize();
+	int Numbers();
 };

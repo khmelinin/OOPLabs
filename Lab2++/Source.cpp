@@ -1,21 +1,25 @@
 #include "Text.h"
 using namespace std;
 
+void A()
+{
+	Str a("hel45180o");
+	int res = a.Numbers();
+	cout << res << endl;
+	a.print();
+	Text b(a);
+	b.Add(a);
+	b.getText(0).print();
+	b.Del();
+	
+	//int k = b.Elements();
+
+}
+
 int main()
 {
 	
-	Str a("hell45180o");
-	int res = a.Numbers();
-	cout << res << endl;
-	/*Str aa("world123");
-	Text t(a);
-	t.Add(aa);
-
-	a.print();*/
-
-	//int e = t.Elements();
-	//double n = t.NumbersPectentage();
-
+	A();
 	system("pause");
 
 }

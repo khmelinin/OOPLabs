@@ -5,7 +5,7 @@ using namespace std;
 class Text
 {
 	int size = 0;
-	Str *text=nullptr;
+	Str* text = nullptr;
 public:
 	Text() = default;
 	Text(Str a);
@@ -13,7 +13,8 @@ public:
 	void Add(Str a);
 	void Del();
 	void Clear();
+	Str getText(int i);
 	Str Biggest();
-	int Elements()const;
-	double NumbersPectentage()const;
+	int Elements();
+	double NumbersPectentage();
 };

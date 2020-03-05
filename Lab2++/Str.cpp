@@ -10,14 +10,17 @@ Str::~Str()
 
 Str::Str(const char s[])
 {
-	size = strlen(s)+1;
+	size = strlen(s);
+	int ssize = size;
 	cout << "strlen(s) = " << size << endl;
 	str = new char [size];
 	for (int i = 0; i < size; i++)
 	{
 		str[i] = s[i];
+		
 	}
 }
+
 
 void Str::print()
 {
@@ -73,12 +76,12 @@ void Str::Del(const char s[])
 	size -= (strlen(s));
 }
 
-int Str::getSize() const
+int Str::getSize()
 {
 	return size;
 }
 //--------------------------------------------------
-int Str::Numbers() const
+int Str::Numbers()
 {
 	int n = 0;
 

@@ -3,10 +3,6 @@ using namespace std;
 
 Text::~Text()
 {
-	for (int i = 0; i < size; i++)
-	{
-		text[i].~Str();
-	}
 	size = 0;
 	delete[]text;
 }
@@ -14,19 +10,18 @@ Text::~Text()
 Text::Text(Str a)
 {
 	size++;
-	text = new Str[size];
-	text[0] = a;
+	text = new Str(a);
 }
 
 void Text::Add(Str a)
 {
 	size++;
-	text[size - 1] = a;
+	text[size] = a;
 }
 
 void Text::Del()
 {
-	delete[size-1]text;
+	delete[size]text;
 	size--;
 }
 
@@ -35,6 +30,13 @@ void Text::Clear()
 	*text = nullptr;
 	size = 0;
 }
+
+Str Text::getText(int i)
+{
+	return text[i];
+}
+
+
 
 Str Text::Biggest()
 {
@@ -50,7 +52,7 @@ Str Text::Biggest()
 	return text[index];
 }
 
-int Text::Elements()const
+int Text::Elements()
 {
 	int e = 0;
 	for (int i = 0; i < size; i++)
@@ -60,7 +62,7 @@ int Text::Elements()const
 	return e;
 }
 
-double Text::NumbersPectentage() const
+double Text::NumbersPectentage()
 {
 	int e = Elements();
 	int n= 0;
