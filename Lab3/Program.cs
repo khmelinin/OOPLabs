@@ -1,6 +1,6 @@
-﻿using System;
+﻿// 13
+using System;
 
-//variant 13
 namespace oop_lab3
 {
     class Program
@@ -9,11 +9,13 @@ namespace oop_lab3
         {
 
             TableOfStudents students = new TableOfStudents(10);
-            students[0] = new Student { Name = "Nicol", Surname = "Necha", ByPatronomic = "Dmitriiyovich" };
-            students[1] = new Student { Name = "Vasya", Surname = "Nechay", ByPatronomic = "Alexandriyovich" };
+            students[0] = new Student { Name = "Nicol", Surname = "Chuk", ByPatronomic = "Dmitriiyovich" };
+            students[1] = new Student { Name = "Vasya", Surname = "Ey", ByPatronomic = "Alexandriyovich" };
             students[2] = new Student { Name = "Alex", Surname = "Nechay", ByPatronomic = "Alexandriyovich" };
             string a = students[0].Name;
             int c = students.StudentsCount;
+            int cc = c;
+            Console.WriteLine(c);
         }
     }
 
@@ -51,8 +53,23 @@ namespace oop_lab3
 
         public int StudentsCount
         {
-            get => studentsCount;
-            set => studentsCount = value;
+            get
+            {
+                
+                for (int i = 0; i < data.Length; i++)
+                {
+                    
+                        if (data[i]!=null && data[i].Surname=="Nechay")
+                        {
+                        
+                            studentsCount++;
+                        }
+                    
+                }
+                return studentsCount;
+            }
+            
+
         }
 
 
@@ -68,11 +85,11 @@ namespace oop_lab3
             set
             {
                 data[index] = value;
-                if (data[index].Surname.Equals("Nechay"))
-                {
-                    studentsCount += 1;
-                }
-                //Console.WriteLine(data[index].Surname);
+                //if (data[index].Surname.Equals("Nechay"))
+                //{
+                //    studentsCount += 1;
+                //}
+                
             }
         }
     }
