@@ -1,6 +1,5 @@
 #pragma once
 #include <iostream>
-#include "Text.h"
 using namespace std;
 
 class Str1
