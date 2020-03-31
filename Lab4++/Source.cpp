@@ -1,86 +1,90 @@
-#define _CRT_SECURE_NO_WARNINGS
 #include <iostream>
-#include "Text.h"
+
 using namespace std;
 
-/*
+
 class CS
 {
 	int size = 0;
-	char* cs = nullptr;
+	char* str = nullptr;
 public:
 	CS() = default;
+	CS(int s)
+	{
+		size = s;
+		str = new char[size];
+	}
 	CS(const char val[])
 	{
 		size = strlen(val);
-		cs = new char[size];
+		str = new char[size];
 		for (int i = 0; i < size; i++)
 		{
-			cs[i] = val[i];
+			str[i] = val[i];
 		}
 	}
 
 	CS(const CS& obj)
 	{
 		size = obj.size;
-		cs = new char[size];
+		str = new char[size];
 		for (int i = 0; i < size; i++)
 		{
-			cs[i] = obj.cs[i];
+			str[i] = obj.str[i];
 		}
 	}
 	int getSize() { return size; }
 	void setSize(int s) { size = s; }
-	const char getCS(int i) { return cs[i]; }
-	void setCS(int i, const char a) { cs[i] = a; }
+	const char getCS(int i) { return str[i]; }
+	void setCS(int i, const char a) { str[i] = a; }
+
 	const CS operator+(const CS obj)
 	{
-		
-		int s = size;
-		setSize(size + obj.size);
-		for (int i = s; i < size; i++)
+		CS result(size + obj.size);
+		for (int i = 0; i < result.size; i++)
 		{
-			cs[i] = obj.cs[i];
+			if (i < size)
+				result.str[i] = str[i];
+			else
+				result.str[i] = obj.str[i - size];
 		}
-		return *this;
+		return result;
 	}
 
 	const CS operator-(const char& c)
 	{
-		CS res;
-		res = *this;
-		for (int i = 0; i < res.size; i++)
+		CS result(size-1);
+		int i = 0;
+		while (str[i] != c && i < result.getSize())
 		{
-			if (res.cs[i] == c)
-			{
-				for (int j = i; j < res.size - 1; j++)
-				{
-					res.cs[j] = res.cs[j + 1];
-				}
-				size--;
-				delete[size]res.cs;
-			}
+			result.str[i] = str[i];
+			i++;
 		}
-		return res;
+		for (int j = i + 1; j < result.getSize() + 1; j++)
+		{
+			result.str[j - 1] = str[j];
+		}
+		return result;
 	}
 
 	void print()
 	{
+		cout << size << endl;
 		for (int i = 0; i < size; i++)
 		{
-			cout << cs;
+			cout << str[i];
 		}
 		cout << endl;
 	}
 };
-*/
+
 
 
 int main()
 {
-	Str cs1("qwer");
-	Str cs2("tyui");
-	Str cs3(cs1 + cs2);
-	//cs3.print();
+	CS cs1("qwer");
+	CS cs2("tyui");
+	CS cs3(cs1 -'w');
+	cs3.print();
 	system("pause");
 }
