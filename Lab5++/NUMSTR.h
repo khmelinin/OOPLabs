@@ -27,7 +27,7 @@ public:
 				{
 					str[i] = str[i + 1];
 				}
-				delete [size-1]str;
+				
 				size--;
 				return;
 			}

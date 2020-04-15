@@ -6,10 +6,11 @@ using namespace std;
 int main()
 {
 	
-	NUMSTR n(32);
-	char* s = n.getStr();
+	NUMSTR n(123);
 	n.print();
-	cout << "s: " << s[0]<<endl;
+	char* s = n.getStr();
+	n.Del('2');
+	n.print();
 	
 
     double tt[4][2] = { { 1, 5 }, { 3, 5 }, { 4, 0 }, { 0, 0 } };
