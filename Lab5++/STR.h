@@ -31,12 +31,5 @@ public:
 		return size;
 	}
 
-	void print()
-	{
-		for (int i = 0; i < size; i++)
-		{
-			cout << str[i];
-		}
-		cout << endl;
-	}
+	
 };

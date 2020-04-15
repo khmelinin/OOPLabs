@@ -1,16 +1,16 @@
-//#include "NUMSTR.h"
+#include "NUMSTR.h"
 #include "Trapez.h"
 #include "Circle.h"
 using namespace std;
 
 int main()
 {
-	/*
-	NUMSTR n(3);
+	
+	NUMSTR n(32);
 	char* s = n.getStr();
 	n.print();
-	cout << "s: " << s[0];
-	*/
+	cout << "s: " << s[0]<<endl;
+	
 
     double tt[4][2] = { { 1, 5 }, { 3, 5 }, { 4, 0 }, { 0, 0 } };
     Trapez t(tt);

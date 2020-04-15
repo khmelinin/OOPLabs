@@ -8,11 +8,14 @@ public:
 	NUMSTR(int n)
 	{
 		string tmp = to_string(n);
-		str = new char[tmp.size];
-		for (int i = 0; i < tmp.size(); i++)
+		int s = tmp.size();
+		char *res = new char[s];
+		for (int i = 0; i < s; i++)
 		{
-			str[i] = tmp[i];
+			res[i] = tmp[i];
 		}
+		size = s;
+		str = res;
 	}
 	void Del(char a)
 	{
@@ -35,5 +38,16 @@ public:
 	char* getStr()
 	{
 		return str;
+	}
+
+	void print()
+	{
+		int i = 0;
+		while (i < size)
+		{
+			cout << str[i];
+			i++;
+		}
+		cout << endl;
 	}
 };
