@@ -20,11 +20,7 @@ namespace Lab4Sharp
             
         }
         public char[] Properties { get => cs; set => value.CopyTo(cs, 0); }
-        //public char this[int i]
-        //{
-        //    get { return cs[i]; }
-        //    set { cs[i] = value; }
-        //}
+        
         public CS(CS val):this(val.cs){ }
         public int getL() { return cs.GetLength(0); }
         public char[] getLine() { return cs; }
@@ -63,13 +59,15 @@ namespace Lab4Sharp
         static void Main(string[] args)
         {
             char[] c1 ={ 'a','s','d','f'};
-            char[] c2 = { 'g', 'h', 'j', 'k' };
+            char[] c2 = { 'a', 'b', 'c', 'd' };
+            char[] c3 = { 'e', '0', 'f', 'g' };
             CS cs1= new CS(c1);
             CS cs2 = new CS(c2);
-            CS cs3 = new CS(cs1 + cs2);
+            CS cs3 = new CS(c3);
+            cs3 = cs3 - '0';
+            cs1 = cs2 + cs3;
             Console.WriteLine(cs3.getLine());
-            CS cs4=new CS(cs3-'g');
-            Console.WriteLine(cs4.getLine());
+            Console.WriteLine(cs1.getLine());
         }
     }
 }

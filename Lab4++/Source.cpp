@@ -3,18 +3,18 @@
 using namespace std;
 
 
-class CS
+class STR
 {
 	int size = 0;
 	char* str = nullptr;
 public:
-	CS() = default;
-	CS(int s)
+	STR() = default;
+	STR(int s)
 	{
 		size = s;
 		str = new char[size];
 	}
-	CS(const char val[])
+	STR(const char val[])
 	{
 		size = strlen(val);
 		str = new char[size];
@@ -24,7 +24,7 @@ public:
 		}
 	}
 
-	CS(const CS& obj)
+	STR(const CS& obj)
 	{
 		size = obj.size;
 		str = new char[size];
@@ -38,9 +38,9 @@ public:
 	const char getCS(int i) { return str[i]; }
 	void setCS(int i, const char a) { str[i] = a; }
 
-	const CS operator+(const CS obj)
+	const STR operator+(const CS obj)
 	{
-		CS result(size + obj.size);
+		STR result(size + obj.size);
 		for (int i = 0; i < result.size; i++)
 		{
 			if (i < size)
@@ -51,9 +51,9 @@ public:
 		return result;
 	}
 
-	const CS operator-(const char& c)
+	const STR operator-(const char& c)
 	{
-		CS result(size-1);
+		STR result(size-1);
 		int i = 0;
 		while (str[i] != c && i < result.getSize())
 		{
@@ -82,9 +82,13 @@ public:
 
 int main()
 {
-	CS cs1("qwer");
-	CS cs2("tyui");
-	CS cs3(cs1 -'w');
+	STR cs1("qwerty");
+	STR cs2("abc");
+	STR cs3("de0f");
+	cs3 = cs3 - '0';
+	cs1 = cs2 + cs3;
 	cs3.print();
+	cs1.print();
+
 	system("pause");
 }
