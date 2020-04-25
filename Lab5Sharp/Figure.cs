@@ -6,6 +6,7 @@ namespace Lab5Sharp
 {
     class Figure
     {
+        
         public virtual double S()
         {
             return 0;

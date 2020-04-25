@@ -7,11 +7,11 @@ int main()
 {
 	
 	NUMSTR n(123);
+	NUMSTR mm;
 	n.print();
 	char* s = n.getStr();
 	n.Del('2');
 	n.print();
-	
 
     double tt[4][2] = { { 1, 5 }, { 3, 5 }, { 4, 0 }, { 0, 0 } };
     Trapez t(tt);

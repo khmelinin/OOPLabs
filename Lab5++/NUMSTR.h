@@ -5,6 +5,7 @@
 class NUMSTR:public STR
 {
 public:
+	NUMSTR() :STR() {};
 	NUMSTR(int n)
 	{
 		string tmp = to_string(n);
@@ -35,6 +36,7 @@ public:
 			
 		}
 	}
+	
 	char* getStr()
 	{
 		return str;

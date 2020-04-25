@@ -21,11 +21,11 @@ public:
 
         h = v[1][1] - v[3][1];
     }
-    double S()
+    double S()override
     {
         return (ab + cd) / 2 * h;
     }
-    double P()
+    double P()override
     {
         return ab + bc + cd + da;
     }
