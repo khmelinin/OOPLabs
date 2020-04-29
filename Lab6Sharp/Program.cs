@@ -76,8 +76,10 @@ namespace Lab6Sharp
         }
 
     }
+   
     class Program
     {
+        
         static void Main(string[] args)
         {
             Expression []a = { new Expression(1,1,1), new Expression(1,2,0),new Expression(1,1,0)};
@@ -85,6 +87,9 @@ namespace Lab6Sharp
             Console.WriteLine("a[0].Result() = {0} \n",a[0].Result());
             Console.WriteLine("a[1].Result() = {0} \n",a[1].Result());
             Console.WriteLine("a[2].Result() = {0} \n",a[2].Result());
+
+            double d = a[0] / 0;
+            Console.WriteLine(d);
         }
     }
 }
