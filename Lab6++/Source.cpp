@@ -1,5 +1,6 @@
 #include <iostream>
 #include <fstream>
+#include <time.h>
 #include "math.h"
 
 using namespace std;
@@ -104,7 +105,7 @@ public:
 
 int main()
 {
-    Expression a[] = { Expression(1,1,1), Expression(1,2,0), Expression(1,1,0) };
+    Expression a[] = { Expression(1,1,1), Expression(1,2,1), Expression(1,1,0) };
 
     cout << "a[0].Result() = " << a[0].Result() <<  endl;
     cout << "a[1].Result() = " << a[1].Result() <<  endl;

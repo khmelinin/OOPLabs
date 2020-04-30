@@ -43,7 +43,7 @@ namespace Lab6Sharp
                 Console.WriteLine(e.Message);
                 using (StreamWriter logExp = new StreamWriter(@"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Lab6Sharp\log.txt", true, System.Text.Encoding.Default))
                 {
-                    logExp.WriteLine(e.Message);
+                    logExp.WriteLine(e.Message + " " + Convert.ToString(DateTime.Now));
                 }
             }
             return res;
@@ -63,7 +63,7 @@ namespace Lab6Sharp
                 Console.WriteLine(e.Message);
                 using (StreamWriter logExp = new StreamWriter(@"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Lab6Sharp\log.txt", true, System.Text.Encoding.Default))
                 {
-                    logExp.WriteLine(e.Message);
+                    logExp.WriteLine(e.Message+" "+Convert.ToString(DateTime.Now));
                 }
             }
             return res;
@@ -80,10 +80,10 @@ namespace Lab6Sharp
             }
             catch(Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine(e.Message + " " + Convert.ToString(DateTime.Now));
                 using (StreamWriter logExp = new StreamWriter(@"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Lab6Sharp\log.txt", true, System.Text.Encoding.Default))
                 {
-                    logExp.WriteLine(e.Message);
+                    logExp.WriteLine(e.Message + " " + Convert.ToString(DateTime.Now));
                 }
             }
             return res;

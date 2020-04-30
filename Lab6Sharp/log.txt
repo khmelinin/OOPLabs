@@ -3,3 +3,13 @@ dividing by zero
 log10 Error
 dividing by zero
 dividing by zero (operator)
+log10 Error
+dividing by zero
+log10 Error
+dividing by zero
+dividing by zero (operator)
+log10 Error 30.04.2020 11:06:13
+dividing by zero 30.04.2020 11:06:13
+log10 Error 30.04.2020 11:06:13
+dividing by zero 30.04.2020 11:06:13
+dividing by zero (operator)
