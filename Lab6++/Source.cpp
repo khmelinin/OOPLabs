@@ -1,4 +1,5 @@
 #include <iostream>
+#include <fstream>
 #include "math.h"
 
 using namespace std;
@@ -44,6 +45,12 @@ public:
         catch (runtime_error e)
         {
             cout << e.what() << endl;
+            std::ofstream out("log.txt", std::ios::app);
+            if (out.is_open())
+            {
+                out << e.what() << std::endl;
+            }
+            out.close();
         }
         return res;
     }
@@ -61,6 +68,12 @@ public:
         catch (runtime_error e)
         {
             cout << e.what() << endl;
+            std::ofstream out("log.txt", std::ios::app);
+            if (out.is_open())
+            {
+                out << e.what() << std::endl;
+            }
+            out.close();
         }
         return res;
     }
@@ -78,6 +91,12 @@ public:
         catch (runtime_error e)
         {
             cout << e.what() << endl;
+            std::ofstream out("log.txt", std::ios::app);
+            if (out.is_open())
+            {
+                out << e.what() << std::endl;
+            }
+            out.close();
         }
         return res;
     }

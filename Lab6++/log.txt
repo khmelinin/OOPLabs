@@ -1,0 +1,5 @@
+Log10 Error
+dividing by zero
+dividing by zero
+Log10 Error
+dividing by zero (operator)

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.IO;
+using System.Text;
 
 namespace Lab6Sharp
 {
@@ -39,6 +41,10 @@ namespace Lab6Sharp
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
+                using (StreamWriter logExp = new StreamWriter(@"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Lab6Sharp\log.txt", true, System.Text.Encoding.Default))
+                {
+                    logExp.WriteLine(e.Message);
+                }
             }
             return res;
         }
@@ -55,6 +61,10 @@ namespace Lab6Sharp
             catch (Exception e)
             {
                 Console.WriteLine(e.Message);
+                using (StreamWriter logExp = new StreamWriter(@"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Lab6Sharp\log.txt", true, System.Text.Encoding.Default))
+                {
+                    logExp.WriteLine(e.Message);
+                }
             }
             return res;
         }
@@ -71,6 +81,10 @@ namespace Lab6Sharp
             catch(Exception e)
             {
                 Console.WriteLine(e.Message);
+                using (StreamWriter logExp = new StreamWriter(@"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Lab6Sharp\log.txt", true, System.Text.Encoding.Default))
+                {
+                    logExp.WriteLine(e.Message);
+                }
             }
             return res;
         }
@@ -82,6 +96,7 @@ namespace Lab6Sharp
         
         static void Main(string[] args)
         {
+            
             Expression []a = { new Expression(1,1,1), new Expression(1,2,0),new Expression(1,1,0)};
 
             Console.WriteLine("a[0].Result() = {0} \n",a[0].Result());
