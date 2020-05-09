@@ -1,25 +1,35 @@
 #pragma once
 #include <iostream>
-#include <vector>
 #include <string>
+#include <vector>
+
+using namespace std;
+void (* ClearHandler)(string message);
+void DisplayMessage(string message)
+    {
+        cout << message << endl;
+    }
+
 class MyList
 {
     vector<string> l;
-public: 
-    //delegate void ClearHandler(string message);
-    //event ClearHandler Notify = DisplayMessage;
     
-    MyList(string[] s)
-    {
-        l = new List<string>(s);
-    }
-    void DisplayMessage(string message)
-    {
-        Console.WriteLine(message);
-    }
-    delegate void clear();
-    clear Clear = () = > { l.Clear(); Notify ? .Invoke($"Clear()"); };
+public: 
 
-    List<string> L{ get = > l; set = > l = value; }
+    MyList(string s)
+    {
+        l.push_back(s);
+    }
+    
+    
+
+    void Clear()
+    {
+        ClearHandler = DisplayMessage;
+        ClearHandler("Clear()");
+        l.clear();
+
+    }
+    
 };
 
