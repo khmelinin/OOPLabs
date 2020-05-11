@@ -5,6 +5,8 @@
 
 using namespace std;
 void (* ClearHandler)(string message);
+
+
 void DisplayMessage(string message)
     {
         cout << message << endl;
@@ -21,8 +23,6 @@ public:
         l.push_back(s);
     }
     
-    
-
     void Clear()
     {
         ClearHandler = DisplayMessage;

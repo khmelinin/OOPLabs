@@ -4,6 +4,7 @@
 
 using namespace std;
 
+
 bool Function(const char str[])
 {
     int n = 0, s = 0;
@@ -23,6 +24,7 @@ bool Function(const char str[])
     else
         return 0;
 }
+
 
 bool (*F)(const char str[]);
 
