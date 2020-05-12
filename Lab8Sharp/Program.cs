@@ -42,12 +42,12 @@ namespace Lab8Sharp
             
             MyList mylist = new MyList(new string[] { "one", "two", "three" });
             MyList.ClearS();
-
             MyList.MyDelegate static_delegate = MyList.MethodS;
             MyList.MyDelegate non_static_delegate = mylist.MethodNS;
 
             Console.WriteLine("FROM MyList(static): str > numbers ? = {0}", static_delegate("dqwe12e2d1132qwed12`"));
             Console.WriteLine("FROM MyList(non static): str > numbers ? = {0}", non_static_delegate("dqwe12e2d1132qwed12`"));
+            object a = new MyList(new string[] { "one", "two", "three" });
         }
     }
 }
