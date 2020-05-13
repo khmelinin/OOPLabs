@@ -53,7 +53,7 @@ namespace KursachLib
         {
             for (int i = 0; i < tours.Length; i++)
             {
-                if (tours[i].Price == p)
+                if (tours[i].Price <= p)
                 {
                     Console.WriteLine(company);
                     tours[i].Print();
@@ -83,6 +83,29 @@ namespace KursachLib
                     tours[i].Print();
                 }
             }
+        }
+        public void Cleaning()
+        {
+            int count = 0;
+            for (int i = 0; i < tours.Length; i++)
+            {
+                if (tours[i].Date.Year <= DateTime.Now.Year && tours[i].Date.Month<DateTime.Now.Month)
+                {
+                    count++;
+                }
+            }
+            
+            Tour[] tmp = new Tour[tours.Length - count];
+            int j = 0;
+            for (int i = 0; i < tmp.Length; i++)
+            {
+                if (tours[i].Date.Year >= DateTime.Now.Year && tours[i].Date.Month >= DateTime.Now.Month)
+                {
+                    tmp[j] = tours[i];
+                    j++;
+                }
+            }
+            tours = tmp;
         }
     }
 }

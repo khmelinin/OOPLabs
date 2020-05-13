@@ -10,7 +10,7 @@ namespace KursachLib
         protected double price;
         protected DateTime date;
         protected string addition= @"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Kursach\bin\Debug\netcoreapp3.1\logs";
-        protected string path1;
+        
 
         protected AbstractTour(string destination, string theme, double price, DateTime date)
         {
@@ -21,7 +21,7 @@ namespace KursachLib
                 if (price >= 0)
                     this.price = price;
                 else
-                    throw new Exception("price can't be "+price.ToString()+", installed default price = 0");
+                    throw new Exception("price can't be "+price.ToString()+", installed default price = 7777777");
             }
             catch(Exception e)
             {
@@ -29,12 +29,12 @@ namespace KursachLib
                 Directory.CreateDirectory(addition);
                 string path = addition+@"\log_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
                 StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default);
-                sw.WriteLine(e.Message);
+                sw.WriteLine(e.Message+"   "+DateTime.Now.TimeOfDay);
                 sw.Close();
                     
                
                 Console.WriteLine(e.Message);
-                this.price = 0;
+                this.price = 7777777;
             }
 
             
