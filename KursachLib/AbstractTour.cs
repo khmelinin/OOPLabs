@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 
 namespace KursachLib
 {
@@ -7,16 +8,37 @@ namespace KursachLib
         protected string destination;
         protected string theme;
         protected double price;
-        protected string date;
-        protected string addition;
+        protected DateTime date;
+        protected string addition= @"C:\Users\AdmiN\source\repos\khmelinin\OOPLabs\Kursach\bin\Debug\netcoreapp3.1\logs";
+        protected string path1;
 
-        protected AbstractTour(string destination, string theme, double price, string date, string addition)
+        protected AbstractTour(string destination, string theme, double price, DateTime date)
         {
             this.destination = destination;
             this.theme = theme;
-            this.price = price;
+            try
+            {
+                if (price >= 0)
+                    this.price = price;
+                else
+                    throw new Exception("price can't be "+price.ToString()+", installed default price = 0");
+            }
+            catch(Exception e)
+            {
+                
+                Directory.CreateDirectory(addition);
+                string path = addition+@"\log_" + DateTime.Now.Year.ToString() + "_" + DateTime.Now.Month.ToString() + "_" + DateTime.Now.Day.ToString() + ".log";
+                StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default);
+                sw.WriteLine(e.Message);
+                sw.Close();
+                    
+               
+                Console.WriteLine(e.Message);
+                this.price = 0;
+            }
+
+            
             this.date = date;
-            this.addition = addition;
         }
 
         public abstract void Print();

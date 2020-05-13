@@ -35,9 +35,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Lab8++", "Lab8++\Lab8++.vcx
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab8SharpLib", "Lab8SharpLib\Lab8SharpLib.csproj", "{C17A8FC3-C9C0-4668-B4A9-31C87955ABB6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Kursach", "Kursach\Kursach.csproj", "{1419F347-D95F-44BF-B2DA-BA85FB4AB845}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Kursach", "Kursach\Kursach.csproj", "{1419F347-D95F-44BF-B2DA-BA85FB4AB845}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "KursachLib", "KursachLib\KursachLib.csproj", "{8BEBBF48-8B93-4D21-906D-D6BD25CC1F78}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "KursachLib", "KursachLib\KursachLib.csproj", "{8BEBBF48-8B93-4D21-906D-D6BD25CC1F78}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

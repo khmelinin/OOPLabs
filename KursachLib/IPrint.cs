@@ -4,7 +4,7 @@ using System.Text;
 
 namespace KursachLib
 {
-    interface IPrint
+    public interface IPrint
     {
         void Print();
     }
