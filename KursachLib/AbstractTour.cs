@@ -31,9 +31,10 @@ namespace KursachLib
                 StreamWriter sw = new StreamWriter(path, true, System.Text.Encoding.Default);
                 sw.WriteLine(e.Message+"   "+DateTime.Now.TimeOfDay);
                 sw.Close();
-                    
-               
+
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine(e.Message);
+                Console.ResetColor();
                 this.price = 7777777;
             }
 

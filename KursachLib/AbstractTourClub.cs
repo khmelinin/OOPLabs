@@ -6,15 +6,29 @@ namespace KursachLib
 {
     public abstract class AbstractTourClub
     {
-        protected Agency[] agencies;
+        protected string name;
+        protected List<Agency> agencies;
+        protected List<Customer> customers;
 
-        protected AbstractTourClub(Agency[] agencies)
+        protected AbstractTourClub(string name, Agency[] agencies, Customer[] customers)
         {
-            this.agencies = agencies;
+            this.name = name;
+            this.agencies=new List<Agency>(agencies);
+            this.customers = new List<Customer>(customers);
+            
+        }
+        protected AbstractTourClub(string name, Agency[] agencies)
+        {
+            this.name = name;
+            this.agencies = new List<Agency>(agencies);
+            customers = new List<Customer>();
         }
 
-        public abstract void Add(Agency a);
-        public abstract void FindByAgency(string co);
+        public abstract void AddAgency(Agency a);
+        public abstract void RemoveAgency(Agency a);
+        public abstract void AddCustomer(Customer a);
+        public abstract void RemoveCustomer(Customer a);
+        public abstract List<Tour> FindByAgency(string co);
 
         
     }

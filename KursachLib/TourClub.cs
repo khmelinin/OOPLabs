@@ -6,55 +6,82 @@ namespace KursachLib
 {
     public class TourClub : AbstractTourClub
     {
-        public TourClub(Agency[] agencies) : base(agencies) { }
-        public Agency[] Agencies{get=>agencies;}
-        public override void Add(Agency a)
-        {
-            Agency[] tmp = new Agency[agencies.Length+1];
-            for (int i = 0; i < agencies.Length; i++)
+        public TourClub(string name, Agency[] agencies, Customer[]customers) : base(name, agencies, customers) {
+            for (int i = 0; i < this.customers.Capacity; i++)
             {
-                tmp[i] = agencies[i];
+                this.customers[i].AddClub(this);
             }
-            tmp[agencies.Length] = a;
-            agencies = tmp;
         }
-        public override void FindByAgency(string co)
+        public TourClub(string name, Agency[] agencies) : base(name, agencies){}
+        public List<Agency> Agencies{get=>agencies;}
+        public string Name { get => name; }
+        public override void AddAgency(Agency a)
         {
-            for (int i = 0; i < agencies.Length; i++)
+            agencies.Add(a);
+        }
+        public override void RemoveAgency(Agency a)
+        {
+            agencies.Add(a);
+        }
+        public override void AddCustomer(Customer a)
+        {
+            customers.Add(a);
+            customers[customers.IndexOf(a)].AddClub(this);
+        }
+        public override void RemoveCustomer(Customer a)
+        {
+            
+            customers[customers.IndexOf(a)].RemoveClub(this);
+            customers.Remove(a);
+        }
+        public override List<Tour> FindByAgency(string co)
+        {
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < agencies.Capacity; i++)
             {
                 if(agencies[i].Company==co)
                 {
-                    agencies[i].Print();
+                    //agencies[i].Print();
+                    tmp.AddRange(agencies[i].Tours);
                 }
             }
+            return tmp;
         }
-        public void FindByCountry(string c)
+        public List<Tour> FindByCountry(string c)
         {
-            for (int i = 0; i < agencies.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < agencies.Capacity; i++)
             {
-                agencies[i].FindByCountry(c);
+                tmp.AddRange(agencies[i].FindByCountry(c));
             }
+            return tmp;
         }
-        public void FindByTheme(string t)
+        public List<Tour> FindByTheme(string t)
         {
-            for (int i = 0; i < agencies.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < agencies.Capacity; i++)
             {
-                agencies[i].FindByTheme(t);
+                tmp.AddRange(agencies[i].FindByTheme(t));
             }
+            return tmp;
         }
-        public void FindByPrice(double p)
+        public List<Tour> FindByPrice(double p)
         {
-            for (int i = 0; i < agencies.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < agencies.Capacity; i++)
             {
-                agencies[i].FindByPrice(p);
+                tmp.AddRange(agencies[i].FindByPrice(p));
             }
+            return tmp;
         }
-        public void FindByDate(DateTime d)
+        public List<Tour> FindByDate(DateTime d)
         {
-            for (int i = 0; i < agencies.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < agencies.Capacity; i++)
             {
-                agencies[i].FindByDate(d);
+                tmp.AddRange(agencies[i].FindByDate(d));
             }
+            return tmp;
         }
     }
 }

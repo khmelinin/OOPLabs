@@ -9,11 +9,11 @@ namespace KursachLib
     {
         public Agency(string company, Tour[] tours) : base(company, tours) { }
         public string Company { get => company; set => company = value; }
-        public Tour[] Tours { get => tours; }
+        public List<Tour> Tours { get => tours; }
         public override void Print()
         {
             Console.WriteLine(company + " : ");
-            for (int i = 0; i < tours.Length; i++)
+            for (int i = 0; i < tours.Capacity; i++)
             {
                 tours[i].Print();
             }
@@ -27,85 +27,82 @@ namespace KursachLib
         public override void Add(Tour tour)
         {
 
-            Tour []tmp= new Tour[tours.Length+1];
-            for (int i = 0; i < tours.Length; i++)
-            {
-                tmp[i] = tours[i];
-            }
-            tmp[tours.Length] = tour;
-            tours = tmp;
+            tours.Add(tour);
 
             Notify?.Invoke($"Added new tour in " + company);
         }
-        public void FindByDate(DateTime d)
+        public List<Tour> FindByDate(DateTime d)
         {
-            for (int i = 0; i < tours.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < tours.Capacity; i++)
             {
                 if(tours[i].Date.Year==d.Year && tours[i].Date.Month==d.Month && tours[i].Date.Day==d.Day)
                 {
-                    Console.WriteLine(company);
-                    tours[i].Print();
+                    //Console.WriteLine(company);
+                    //tours[i].Print();
+                    tmp.Add(tours[i]);
+                    
                 }
             }
+            return tmp;
         }
 
-        public void FindByPrice(double p)
+        public List<Tour> FindByPrice(double p)
         {
-            for (int i = 0; i < tours.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < tours.Capacity; i++)
             {
                 if (tours[i].Price <= p)
                 {
-                    Console.WriteLine(company);
-                    tours[i].Print();
+                    //Console.WriteLine(company);
+                    //tours[i].Print();
+                    tmp.Add(tours[i]);
+                    
                 }
             }
+            return tmp;
         }
 
-        public void FindByCountry(string c)
+        public List<Tour> FindByCountry(string c)
         {
-            for (int i = 0; i < tours.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < tours.Capacity; i++)
             {
                 if (tours[i].Destination == c)
                 {
-                    Console.WriteLine(company);
-                    tours[i].Print();
+                    //Console.WriteLine(company);
+                    //tours[i].Print();
+                    tmp.Add(tours[i]);
+                    
                 }
             }
+            return tmp;
         }
 
-        public void FindByTheme(string t)
+        public List<Tour> FindByTheme(string t)
         {
-            for (int i = 0; i < tours.Length; i++)
+            List<Tour> tmp = new List<Tour>();
+            for (int i = 0; i < tours.Capacity; i++)
             {
                 if (tours[i].Theme == t)
                 {
-                    Console.WriteLine(company);
-                    tours[i].Print();
+                    //Console.WriteLine(company);
+                    //tours[i].Print();
+                    tmp.Add(tours[i]);
+                    
                 }
             }
+            return tmp;
         }
         public void Cleaning()
         {
-            int count = 0;
-            for (int i = 0; i < tours.Length; i++)
+            for (int i = 0; i < tours.Capacity; i++)
             {
                 if (tours[i].Date.Year <= DateTime.Now.Year && tours[i].Date.Month<DateTime.Now.Month)
                 {
-                    count++;
+                    tours.Remove(tours[i]);
                 }
             }
-            
-            Tour[] tmp = new Tour[tours.Length - count];
-            int j = 0;
-            for (int i = 0; i < tmp.Length; i++)
-            {
-                if (tours[i].Date.Year >= DateTime.Now.Year && tours[i].Date.Month >= DateTime.Now.Month)
-                {
-                    tmp[j] = tours[i];
-                    j++;
-                }
-            }
-            tours = tmp;
         }
     }
 }
