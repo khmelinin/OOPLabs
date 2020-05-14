@@ -4,6 +4,20 @@
 
 using namespace std;
 
+bool Function(const char str[]);
+
+
+
+
+bool (*F)(const char str[]);
+
+int main()
+{
+    F = Function;
+    cout << F("d432432432432423423423ads123324dsasdsa") << endl;
+    //MyList mylist ("adsad");
+    //mylist.Clear();
+}
 
 bool Function(const char str[])
 {
@@ -23,15 +37,4 @@ bool Function(const char str[])
         return 1;
     else
         return 0;
-}
-
-
-bool (*F)(const char str[]);
-
-int main()
-{
-    F = Function;
-    cout << F("dasqwads123324dsasdsa") << endl;
-    MyList mylist ("adsad");
-    mylist.Clear();
 }
