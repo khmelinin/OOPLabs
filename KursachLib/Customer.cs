@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace KursachLib
@@ -51,7 +52,7 @@ namespace KursachLib
         public override void Print()
         {
             Console.WriteLine(name);
-            for (int i = 0; i < tours.Capacity; i++)
+            for (int i = 0; i < tours.Count; i++)
             {
                 tours[i].Print();
             }

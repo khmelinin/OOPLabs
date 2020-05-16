@@ -5,6 +5,24 @@ namespace Kursach
 {
     class Program
     {
+        static void WatchTours(Customer tmp)
+        {
+            string answer1 = "";
+            Console.WriteLine("Do you want to see your tours cart?");
+            answer1 = Console.ReadLine();
+            while (((answer1 != "y" && answer1 != "Y" && answer1 != "yes" && answer1 != "Yes") || (answer1 != "n" || answer1 != "No" || answer1 != "no" || answer1 != "No")))
+            {
+
+                if (answer1 == "y" || answer1 == "Y" || answer1 == "yes" || answer1 == "Yes")
+                {
+                    tmp.Print();
+                    break;
+                }
+                else if (answer1 == "n" || answer1 == "N" || answer1 == "no" || answer1 == "No")
+                    break;
+                else Console.WriteLine("Incorrect answer format");
+            }
+        }
         static bool Finding(Customer tmp, TourClub tourclub)
         {
             //
@@ -15,31 +33,30 @@ namespace Kursach
                 //
                 Console.WriteLine("Finding by: Price(1), Country(2), Tour agency(3), Date(4), Theme(5) :");
                 string s = Console.ReadLine();
-                while (s != "1" || s != "2" || s != "3" || s != "4" || s != "5")
+                while (Convert.ToInt32(s) != 1 && Convert.ToInt32(s) != 2 && Convert.ToInt32(s) != 3 && Convert.ToInt32(s) != 4 && Convert.ToInt32(s) != 5)
                 {
                     Console.WriteLine("you need to write a right number");
                     s = Console.ReadLine();
                 }
                 string str = "";
-                switch (s)
-                {
-
-                    case "1":
+                switch (Convert.ToInt32(s))
+                { 
+                    case 1:
                         Console.WriteLine("Enter max price you want: ");
                         str = Console.ReadLine();
                         tmp.AddTour(tourclub.FindByPrice(Convert.ToInt32(str)));
                         break;
-                    case "2":
+                    case 2:
                         Console.WriteLine("Enter country you want: ");
                         str = Console.ReadLine();
                         tmp.AddTour(tourclub.FindByCountry(str));
                         break;
-                    case "3":
+                    case 3:
                         Console.WriteLine("Enter agency you want: ");
                         str = Console.ReadLine();
                         tmp.AddTour(tourclub.FindByAgency(str));
                         break;
-                    case "4":
+                    case 4:
                         Console.WriteLine("Enter date you want: ");
                         Console.Write("year: ");
                         int year = Convert.ToInt32(Console.ReadLine());
@@ -49,7 +66,7 @@ namespace Kursach
                         int day = Convert.ToInt32(Console.ReadLine());
                         tmp.AddTour(tourclub.FindByDate(new DateTime(year, month, day)));
                         break;
-                    case "5":
+                    case 5:
                         Console.WriteLine("Enter theme you want: ");
                         str = Console.ReadLine();
                         tmp.AddTour(tourclub.FindByTheme(str));
@@ -67,6 +84,7 @@ namespace Kursach
                 return Finding(tmp, tourclub);
             }
         }
+        
         static void Start()
         {
             Tour[] toursPack1 = { new Tour("Egypt", "Pyramids", 900, new DateTime(2020, 03, 04)), new Tour("USA", "Shooting Range", 400, new DateTime(2019, 03, 04)) };
@@ -111,9 +129,13 @@ namespace Kursach
                             Console.WriteLine("Incorrect answer format");
                         }
                     }
-
-
+                    WatchTours(tmp);
                 }
+                else
+                    if (answer == "n" || answer == "N" || answer == "no" || answer == "No")
+                    tf = false;
+                else
+                    Console.WriteLine("Incorrect answer format");
 
             }
         }

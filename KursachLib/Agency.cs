@@ -50,7 +50,7 @@ namespace KursachLib
         public List<Tour> FindByPrice(double p)
         {
             List<Tour> tmp = new List<Tour>();
-            for (int i = 0; i < tours.Capacity; i++)
+            for (int i = 0; i < tours.Count; i++)
             {
                 if (tours[i].Price <= p)
                 {

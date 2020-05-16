@@ -74,7 +74,7 @@ namespace KursachLib
         public List<Tour> FindByPrice(double p)
         {
             List<Tour> tmp = new List<Tour>();
-            for (int i = 0; i < agencies.Capacity; i++)
+            for (int i = 0; i < agencies.Count; i++)
             {
                 tmp.AddRange(agencies[i].FindByPrice(p));
             }
