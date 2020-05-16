@@ -24,7 +24,7 @@ namespace KursachLib
         }
         public abstract void AddTour(Tour t);
         public abstract void AddTour(List<Tour> t);
-        public abstract void AddClub(TourClub t);
+        public abstract void NotifyAdding(TourClub t);
         public abstract void RemoveClub(TourClub t);
         public abstract void RemoveTour(int n);
         public abstract void Print();

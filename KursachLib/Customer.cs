@@ -25,16 +25,24 @@ namespace KursachLib
             tours.AddRange(t);
         }
 
+        public void AddMyselfClub(TourClub t)
+        {
+            t.AddCustomer(this);
+        }
+        public void LeaveClub(TourClub t)
+        {
+            t.RemoveCustomer(this);
+        }
 
-        public override void AddClub(TourClub t)
+        public override void NotifyAdding(TourClub t)
         {
             tourclubs.Add(t);
-            Notify?.Invoke($"Customer "+ name + " added to "+t.Name);
+            Notify?.Invoke($"You added to "+t.Name);
         }
         public override void RemoveClub(TourClub t)
         {
             tourclubs.Remove(t);
-            Notify?.Invoke($"Customer " + name + " has been removed from "+ t.Name);
+            Notify?.Invoke($"You has been removed from "+ t.Name);
         }
         public override void RemoveTour(int n)
         {

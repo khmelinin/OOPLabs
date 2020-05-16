@@ -9,7 +9,7 @@ namespace KursachLib
         public TourClub(string name, Agency[] agencies, Customer[]customers) : base(name, agencies, customers) {
             for (int i = 0; i < this.customers.Capacity; i++)
             {
-                this.customers[i].AddClub(this);
+                this.customers[i].NotifyAdding(this);
             }
         }
         public TourClub(string name, Agency[] agencies) : base(name, agencies){}
@@ -26,7 +26,7 @@ namespace KursachLib
         public override void AddCustomer(Customer a)
         {
             customers.Add(a);
-            customers[customers.IndexOf(a)].AddClub(this);
+            customers[customers.IndexOf(a)].NotifyAdding(this);
         }
         public override void RemoveCustomer(Customer a)
         {
@@ -45,6 +45,8 @@ namespace KursachLib
                     tmp.AddRange(agencies[i].Tours);
                 }
             }
+            if(tmp.Capacity==0)
+                Console.WriteLine("Nothing found");
             return tmp;
         }
         public List<Tour> FindByCountry(string c)
@@ -54,6 +56,8 @@ namespace KursachLib
             {
                 tmp.AddRange(agencies[i].FindByCountry(c));
             }
+            if (tmp.Capacity == 0)
+                Console.WriteLine("Nothing found");
             return tmp;
         }
         public List<Tour> FindByTheme(string t)
@@ -63,6 +67,8 @@ namespace KursachLib
             {
                 tmp.AddRange(agencies[i].FindByTheme(t));
             }
+            if (tmp.Capacity == 0)
+                Console.WriteLine("Nothing found");
             return tmp;
         }
         public List<Tour> FindByPrice(double p)
@@ -72,6 +78,8 @@ namespace KursachLib
             {
                 tmp.AddRange(agencies[i].FindByPrice(p));
             }
+            if (tmp.Capacity == 0)
+                Console.WriteLine("Nothing found");
             return tmp;
         }
         public List<Tour> FindByDate(DateTime d)
@@ -81,6 +89,8 @@ namespace KursachLib
             {
                 tmp.AddRange(agencies[i].FindByDate(d));
             }
+            if (tmp.Capacity == 0)
+                Console.WriteLine("Nothing found");
             return tmp;
         }
     }

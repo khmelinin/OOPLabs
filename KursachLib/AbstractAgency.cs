@@ -16,12 +16,7 @@ namespace KursachLib
             this.company = company;
             this.tours = new List<Tour>(tours);
 
-            /*
-            for (int i = 0; i < tours.Length; i++)
-            {
-                this.tours.Add(tours[i]);
-            }
-            */
+            
             
         }
 
