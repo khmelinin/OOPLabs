@@ -51,6 +51,7 @@ namespace KursachLib
         }
         public override void Print()
         {
+            Console.WriteLine();
             Console.WriteLine(name);
             for (int i = 0; i < tours.Count; i++)
             {

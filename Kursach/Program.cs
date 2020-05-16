@@ -33,18 +33,47 @@ namespace Kursach
                 //
                 Console.WriteLine("Finding by: Price(1), Country(2), Tour agency(3), Date(4), Theme(5) :");
                 string s = Console.ReadLine();
-                while (Convert.ToInt32(s) != 1 && Convert.ToInt32(s) != 2 && Convert.ToInt32(s) != 3 && Convert.ToInt32(s) != 4 && Convert.ToInt32(s) != 5)
+                int t = 0;
+                try
+                {
+                    t = Convert.ToInt32(s);
+                }
+                catch (FormatException)
+                {
+                    Console.WriteLine("Not a number");
+                }
+
+
+                while (t != 1 &&t != 2 && t != 3 && t != 4 && t != 5)
                 {
                     Console.WriteLine("you need to write a right number");
                     s = Console.ReadLine();
+                    try
+                    {
+                        t = Convert.ToInt32(s);
+                    }
+                    catch (FormatException)
+                    {
+                        Console.WriteLine("Not a number");
+                    }
                 }
                 string str = "";
-                switch (Convert.ToInt32(s))
+                
+                switch (t)
                 { 
                     case 1:
                         Console.WriteLine("Enter max price you want: ");
                         str = Console.ReadLine();
-                        tmp.AddTour(tourclub.FindByPrice(Convert.ToInt32(str)));
+                        int tt=0;
+                        try
+                        {
+                            tt = Convert.ToInt32(s);
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Not a number, max prise set to 0");
+                        }
+                        tmp.AddTour(tourclub.FindByPrice(tt));
                         break;
                     case 2:
                         Console.WriteLine("Enter country you want: ");
@@ -56,16 +85,44 @@ namespace Kursach
                         str = Console.ReadLine();
                         tmp.AddTour(tourclub.FindByAgency(str));
                         break;
+
+
                     case 4:
                         Console.WriteLine("Enter date you want: ");
                         Console.Write("year: ");
-                        int year = Convert.ToInt32(Console.ReadLine());
+                        int year = DateTime.Now.Month, month = DateTime.Now.Month, day = DateTime.Now.Day;
+                        try
+                        {
+                            year = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Not a number, year set to now");
+                        }
+
                         Console.Write("month: ");
-                        int month = Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            month = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Not a number, month set to now");
+                        }
+
                         Console.Write("day: ");
-                        int day = Convert.ToInt32(Console.ReadLine());
+                        try
+                        {
+                            day = Convert.ToInt32(Console.ReadLine());
+                        }
+                        catch (FormatException)
+                        {
+                            Console.WriteLine("Not a number, day set to now");
+                        }
                         tmp.AddTour(tourclub.FindByDate(new DateTime(year, month, day)));
                         break;
+
+
                     case 5:
                         Console.WriteLine("Enter theme you want: ");
                         str = Console.ReadLine();
