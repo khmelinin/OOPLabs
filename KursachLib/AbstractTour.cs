@@ -21,7 +21,7 @@ namespace KursachLib
                 if (price >= 0)
                     this.price = price;
                 else
-                    throw new Exception("price can't be "+price.ToString()+", installed default price = 7777777");
+                    throw new Exception($"Error in tour:\n{destination}, {theme}, {price}, {date}\nPrice can't be "+price.ToString()+", installed default price = 7777777");
             }
             catch(Exception e)
             {

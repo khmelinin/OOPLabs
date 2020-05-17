@@ -20,7 +20,13 @@ namespace Kursach
                 }
                 else if (answer1 == "n" || answer1 == "N" || answer1 == "no" || answer1 == "No")
                     break;
-                else Console.WriteLine("Incorrect answer format");
+                else 
+                {
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("Incorrect answer format");
+                    Console.ResetColor();
+                }
             }
         }
         static bool Finding(Customer tmp, TourClub tourclub)
@@ -40,13 +46,17 @@ namespace Kursach
                 }
                 catch (FormatException)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("Not a number");
+                    Console.ResetColor();
                 }
 
 
                 while (t != 1 &&t != 2 && t != 3 && t != 4 && t != 5)
                 {
+                    Console.ForegroundColor = ConsoleColor.Yellow;
                     Console.WriteLine("you need to write a right number");
+                    Console.ResetColor();
                     s = Console.ReadLine();
                     try
                     {
@@ -54,7 +64,9 @@ namespace Kursach
                     }
                     catch (FormatException)
                     {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
                         Console.WriteLine("Not a number");
+                        Console.ResetColor();
                     }
                 }
                 string str = "";
@@ -63,15 +75,16 @@ namespace Kursach
                 { 
                     case 1:
                         Console.WriteLine("Enter max price you want: ");
-                        str = Console.ReadLine();
-                        int tt=0;
+                        double tt = 0;
                         try
                         {
-                            tt = Convert.ToInt32(s);
+                            tt = Convert.ToDouble(Console.ReadLine());
                         }
                         catch (FormatException)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("Not a number, max prise set to 0");
+                            Console.ResetColor();
                         }
                         tmp.AddTour(tourclub.FindByPrice(tt));
                         break;
@@ -97,7 +110,9 @@ namespace Kursach
                         }
                         catch (FormatException)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("Not a number, year set to now");
+                            Console.ResetColor();
                         }
 
                         Console.Write("month: ");
@@ -107,7 +122,9 @@ namespace Kursach
                         }
                         catch (FormatException)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("Not a number, month set to now");
+                            Console.ResetColor();
                         }
 
                         Console.Write("day: ");
@@ -117,7 +134,9 @@ namespace Kursach
                         }
                         catch (FormatException)
                         {
+                            Console.ForegroundColor = ConsoleColor.Yellow;
                             Console.WriteLine("Not a number, day set to now");
+                            Console.ResetColor();
                         }
                         tmp.AddTour(tourclub.FindByDate(new DateTime(year, month, day)));
                         break;
@@ -137,14 +156,17 @@ namespace Kursach
                 return false;
             else
             {
-                Console.WriteLine("Incorrect answer formar");
+                Console.BackgroundColor = ConsoleColor.Yellow;
+                Console.ForegroundColor = ConsoleColor.Black;
+                Console.WriteLine("Incorrect answer format");
+                Console.ResetColor();
                 return Finding(tmp, tourclub);
             }
         }
         
         static void Start()
         {
-            Tour[] toursPack1 = { new Tour("Egypt", "Pyramids", 900, new DateTime(2020, 03, 04)), new Tour("USA", "Shooting Range", 400, new DateTime(2019, 03, 04)) };
+            Tour[] toursPack1 = { new Tour("Egypt", "Pyramids", 900, new DateTime(2020, 03, 04)), new Tour("USA", "Shooting Range", 400, new DateTime(2019, 03, 04)), new Tour("China", "Food", -400, new DateTime(2019, 03, 04)) };
             Tour[] toursPack2 = { new Tour("Italy", "History", 700, new DateTime(2020, 10, 10)), new Tour("Brazil", "Fun", 1200, new DateTime(2021, 1, 2))};
             Agency[] agencies = { new Agency("NewLine",toursPack1)};
             TourClub tourclub = new TourClub("Absolutely TourClub", agencies);
@@ -183,7 +205,10 @@ namespace Kursach
                             break;
                         else
                         {
+                            Console.BackgroundColor = ConsoleColor.Yellow;
+                            Console.ForegroundColor = ConsoleColor.Black;
                             Console.WriteLine("Incorrect answer format");
+                            Console.ResetColor();
                         }
                     }
                     WatchTours(tmp);
@@ -192,7 +217,12 @@ namespace Kursach
                     if (answer == "n" || answer == "N" || answer == "no" || answer == "No")
                     tf = false;
                 else
+                {
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
                     Console.WriteLine("Incorrect answer format");
+                    Console.ResetColor();
+                }
 
             }
         }

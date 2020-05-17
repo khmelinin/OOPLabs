@@ -9,7 +9,7 @@ namespace KursachLib
     {
         delegate void EventDelegate(string msg);
         event EventDelegate Notify = (msg) => {
-            Console.ForegroundColor = ConsoleColor.Yellow;
+            Console.ForegroundColor = ConsoleColor.Blue;
             Console.WriteLine(msg);
             Console.ResetColor();
         };
