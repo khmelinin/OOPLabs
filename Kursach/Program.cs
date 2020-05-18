@@ -3,6 +3,7 @@ using KursachLib;
 
 namespace Kursach
 {
+
     class Program
     {
         static void WatchTours(Customer tmp)
