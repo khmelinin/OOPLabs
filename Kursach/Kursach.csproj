@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <Reference Include="KursachLib">
-      <HintPath>..\KursachLib\bin\Debug\netstandard2.0\KursachLib.dll</HintPath>
+      <HintPath>bin\Debug\netcoreapp3.1\KursachLib.dll</HintPath>
     </Reference>
   </ItemGroup>
 
