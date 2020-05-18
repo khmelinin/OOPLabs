@@ -6,7 +6,7 @@ namespace KursachLib
 {
     public class Tour: AbstractTour
     {
-        public string Path1 { get => path1; set => path1 = value; }
+        
         public string Destination { get => destination; set => destination = value; }
         public string Theme { get => theme; set => theme = value; }
         public double Price { get => price; set => price = value; }

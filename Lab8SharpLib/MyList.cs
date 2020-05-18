@@ -3,15 +3,55 @@ using System.Collections.Generic;
 
 namespace Lab8SharpLib
 {
-    public class MyList
+    public class MyList<T>
     {
         public delegate void ClearHandler(string message);
         public delegate bool MyDelegate(string s);
         public static event ClearHandler Notify = DisplayMessage;
-        static List<string> l;
-        public MyList(string[] s)
+        static T[] data;
+        public MyList(T[] s)
         {
-            l = new List<string>(s);
+            data = s;
+        }
+        public T Next(T dat)
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i].Equals(dat))
+                    return data[i + 1];
+            }
+            
+            return dat;
+        }
+
+        public T Prev(T dat)
+        {
+            for (int i = 0; i < data.Length; i++)
+            {
+                if (data[i].Equals(dat))
+                    return data[i - 1];
+            }
+
+            return dat;
+        }
+        public void Add(T s)
+        {
+            T[] tmp = new T[data.Length + 1];
+            for (int i = 0; i < data.Length; i++)
+            {
+                tmp[i] = data[i];
+            }
+            tmp[data.Length] = s;
+            data = tmp;
+        }
+        public void Pop()
+        {
+            T[] tmp = new T[data.Length - 1];
+            for (int i = 0; i < data.Length-1; i++)
+            {
+                tmp[i] = data[i];
+            }
+            data = tmp;
         }
         private static void DisplayMessage(string message)
         {
@@ -58,9 +98,9 @@ namespace Lab8SharpLib
                 return false;
         }
         public delegate void clear();
-        public static clear ClearS = () => { l.Clear(); Notify?.Invoke($"Clear()"); };
-        public clear ClearE = () => { l.Clear(); Notify?.Invoke($"Clear()"); };
+        public static clear ClearS = () => { data=new T[] { }; Notify?.Invoke($"Clear()"); };
+        public clear ClearE = () => { data = new T[] { }; Notify?.Invoke($"Clear()"); };
 
-        public List<string> L { get => l; set => l = value; }
+        public T this[int i] { get => data[i]; set => data[i] = value; }
     }
 }

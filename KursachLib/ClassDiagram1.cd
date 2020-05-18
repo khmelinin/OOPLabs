@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="KursachLib.AbstractAgency">
+    <Position X="4.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAEAAQ=</HashCode>
+      <FileName>AbstractAgency.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KursachLib.AbstractCustomer">
+    <Position X="0.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAAAAAAAAIAAAAAAACAAAAAAEAQABAQAAAAAEAAA=</HashCode>
+      <FileName>AbstractCustomer.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KursachLib.AbstractTour">
+    <Position X="2.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAABAAAAABAAAAAAAAAAAAACAAAAAAAAAAAABQAEAAA=</HashCode>
+      <FileName>AbstractTour.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="KursachLib.AbstractTourClub">
+    <Position X="6.5" Y="3" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACBAAAAAAAAAQAAAEACACAEAAAQAAAAAAAAAAA=</HashCode>
+      <FileName>AbstractTourClub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursachLib.Agency">
+    <Position X="4.5" Y="5.5" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="KursachLib.Agency.EventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Agency.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAIAAACAgAAAAAAAAAACAAAAAAAAAABAAAAABAEECBA=</HashCode>
+      <FileName>Agency.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursachLib.Customer">
+    <Position X="0.5" Y="6.25" Width="1.5" />
+    <NestedTypes>
+      <Delegate Name="KursachLib.Customer.EventDelegate" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Customer.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Delegate>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>IAAAAAgAAAAAAAAAAAAACAAAAAAAAQBBAAAACAAEAAA=</HashCode>
+      <FileName>Customer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursachLib.Tour">
+    <Position X="2.5" Y="6" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAQAAAAAQAAAAAAAAAAAAAAAFAAAAAAAEAAA=</HashCode>
+      <FileName>Tour.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="KursachLib.TourClub">
+    <Position X="6.5" Y="6.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAACAAAAAAAAAAQACAEQAACAAAgAQAAAAAAAACBA=</HashCode>
+      <FileName>TourClub.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="KursachLib.IPrint">
+    <Position X="2.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAA=</HashCode>
+      <FileName>IPrint.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
