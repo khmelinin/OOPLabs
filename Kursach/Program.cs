@@ -163,11 +163,129 @@ namespace Kursach
                 return Finding(tmp, tourclub);
             }
         }
-        
+        static void Leaving(Customer c, TourClub tc)
+        {
+            Console.WriteLine($"Do you want to leave a tour club {tc.Name}? (y/n)");
+            string answer1 = Console.ReadLine();
+            while (((answer1 != "y" && answer1 != "Y" && answer1 != "yes" && answer1 != "Yes") || (answer1 != "n" || answer1 != "No" || answer1 != "no" || answer1 != "No")))
+                if (answer1 == "y" || answer1 == "Y" || answer1 == "yes" || answer1 == "Yes")
+                {
+                    c.LeaveClub(tc);
+                    break;
+                }
+                else
+                    if (answer1 == "n" || answer1 == "N" || answer1 == "no" || answer1 == "No")
+                    break;
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("Incorrect answer format");
+                    Console.ResetColor();
+                }
+        }
+
+        static void DelTour(Customer c)
+        {
+            Console.WriteLine($"Do you want to remove a tour? (y/n)");
+            string answer1 = Console.ReadLine();
+            while (((answer1 != "y" && answer1 != "Y" && answer1 != "yes" && answer1 != "Yes") || (answer1 != "n" || answer1 != "No" || answer1 != "no" || answer1 != "No")))
+                if (answer1 == "y" || answer1 == "Y" || answer1 == "yes" || answer1 == "Yes")
+                {
+                    Console.WriteLine("Enter number of tour you want to remove from list: ");
+                    
+                    try
+                    {
+                        int tt = Convert.ToInt32(Console.ReadLine());
+                        if (tt < 0 || tt > c.TourCounts)
+                            throw new Exception($"you haven't any tour in list with number {tt}");
+                        else
+                        {
+                            c.RemoveTour(tt);
+                            Console.WriteLine("Succes.");
+                        }
+                    }
+                    catch (FormatException)
+                    {
+                        Console.ForegroundColor = ConsoleColor.Yellow;
+                        Console.WriteLine("Not a number");
+                        Console.ResetColor();
+                    }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
+                    DelTour(c);
+                    break;
+                    
+                }
+                else
+                    if (answer1 == "n" || answer1 == "N" || answer1 == "no" || answer1 == "No")
+                    break;
+                else
+                {
+                    Console.BackgroundColor = ConsoleColor.Yellow;
+                    Console.ForegroundColor = ConsoleColor.Black;
+                    Console.WriteLine("Incorrect answer format");
+                    Console.ResetColor();
+                    DelTour(c);
+                    break;
+                }
+        }
+
         static void Start()
         {
-            Tour[] toursPack1 = { new Tour("Egypt", "Pyramids", 900, new DateTime(2020, 03, 04)), new Tour("USA", "Shooting Range", 400, new DateTime(2019, 03, 04)), new Tour("China", "Food", -400, new DateTime(2019, 03, 04)) };
-            Tour[] toursPack2 = { new Tour("Italy", "History", 700, new DateTime(2020, 10, 10)), new Tour("Brazil", "Fun", 1200, new DateTime(2021, 1, 2))};
+            string logo = @"                                   /d.                                                              
+                                  sMMN:                                                             
+                                `hMMMMM+                                                            
+                               .mMMMMMMMy                                                           
+                              /NMMMMMMMMMd`                                                         
+                             oMMMMMMMMMMMMN-                                                        
+                           `hMMMMMMMMMMMMMMM+                                                       
+                          .mMMMMMMMMMMMMMMMMMs                 `                                    
+                         :NMMMMMMMMMMMMMMMMMMMd`              :Ny                                   
+                        oMMMMMMMMMMMMMMMMMMMMMMm-            oMMMd`                                 
+                      `yMMMMMMMMMMMMMMMMMMMMMMMMM/         `hMMMMMN-                                
+                     .mMMMMMMMMMMMMMMMMMMMMMMMMMMMs       .mMMMMMMMM+                               
+                    :NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh`    :NMMMMMMMMMMs                              
+                   +MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh`   oMMMMMMMMMMMMMd`                            
+                 `yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMs   `yMMMMMMMMMMMMMMMm-                           
+                .dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN/   .dMMMMMMMMMMMMMMMMMM/                          
+               -NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm-   :NMMMMMMMMMMMMMMMMMMMMs                         
+              +MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh`   +MMMMMMMMMMMMMMMMMMMMMMMh`                       
+             yMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMs    yMMMMMMMMMMMMMMMMMMMMMMMMMm-                      
+           `dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM/   .dMMMMMMMMMMMMMMMMMMMMMMMMMMMN/                     
+          -NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN-   -NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo                    
+         /MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd`   +MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh`                  
+        sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMs    sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm.                 
+      `dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+   `dMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN:                
+     -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN-   -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo               
+    /MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd.   /MMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMh`             
+   sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy    sMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMm.            
+ `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+   `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN:           
+-mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN:   -mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMo          
+-:::::::::::::::::::::::::::::::`   /NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy`        
+                                   oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd.       
+                                 `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN:      
+                                .mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+     
+                               :NMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMy    
+                              oMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMd.  
+                            `hMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMN- 
+                           .mMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMMM+
+
+";
+            Console.WriteLine(logo);
+            Console.WriteLine("\nTourClubPrograms inc.");
+            Console.WriteLine("\nLoading...");
+            Tour[] toursPack1 = {
+                new Tour("Egypt", "Pyramids", 900, new DateTime(2020, 03, 04)),
+                new Tour("USA", "Shooting Range", 400, new DateTime(2019, 03, 04)),
+                new Tour("China", "Food", -400, new DateTime(2019, 03, 04)) };
+            Tour[] toursPack2 = {
+                new Tour("Italy", "History", 700,
+                new DateTime(2020, 10, 10)),
+                new Tour("Brazil", "Fun", 1200,
+                new DateTime(2021, 1, 2))};
             Agency[] agencies = { new Agency("NewLine",toursPack1)};
             TourClub tourclub = new TourClub("Absolutely TourClub", agencies);
             tourclub.AddAgency(new Agency("SkyLine", toursPack2));
@@ -212,6 +330,8 @@ namespace Kursach
                         }
                     }
                     WatchTours(tmp);
+                    DelTour(tmp);
+                    Leaving(tmp, tourclub);
                 }
                 else
                     if (answer == "n" || answer == "N" || answer == "no" || answer == "No")

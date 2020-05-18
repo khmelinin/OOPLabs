@@ -26,12 +26,17 @@ namespace KursachLib
             tours.AddRange(t);
         }
 
+        public int TourCounts
+        {
+            get { return tours.Count(); }
+        }
         public void AddMyselfClub(TourClub t)
         {
             t.AddCustomer(this);
         }
         public void LeaveClub(TourClub t)
         {
+            Notify?.Invoke($"Leaving from " + t.Name+" ...");
             t.RemoveCustomer(this);
         }
 
@@ -47,16 +52,29 @@ namespace KursachLib
         }
         public override void RemoveTour(int n)
         {
+
+            Console.WriteLine($"________________\nTry to remove tour number {n} ...");
+            
             tours.Remove(tours[n]);
+
+            Console.WriteLine("________________");
         }
         public override void Print()
         {
             Console.WriteLine();
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine(name);
+            Console.ResetColor();
+            Console.WriteLine();
+            
             for (int i = 0; i < tours.Count; i++)
             {
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine($" {i}. ");
+                Console.ResetColor();
                 tours[i].Print();
             }
+            
         }
     }
 }
