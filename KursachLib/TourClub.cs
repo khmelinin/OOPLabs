@@ -46,7 +46,7 @@ namespace KursachLib
                 }
             }
             if(tmp.Capacity==0)
-                Console.WriteLine("Nothing found");
+                Console.WriteLine("= Nothing found... =");
             return tmp;
         }
         public List<Tour> FindByCountry(string c)
@@ -57,7 +57,7 @@ namespace KursachLib
                 tmp.AddRange(agencies[i].FindByCountry(c));
             }
             if (tmp.Capacity == 0)
-                Console.WriteLine("Nothing found");
+                Console.WriteLine("= Nothing found... =");
             return tmp;
         }
         public List<Tour> FindByTheme(string t)
@@ -68,7 +68,7 @@ namespace KursachLib
                 tmp.AddRange(agencies[i].FindByTheme(t));
             }
             if (tmp.Capacity == 0)
-                Console.WriteLine("Nothing found");
+                Console.WriteLine("= Nothing found... =");
             return tmp;
         }
         public List<Tour> FindByPrice(double p)
@@ -79,7 +79,7 @@ namespace KursachLib
                 tmp.AddRange(agencies[i].FindByPrice(p));
             }
             if (tmp.Capacity == 0)
-                Console.WriteLine("Nothing found");
+                Console.WriteLine("= Nothing found... =");
             return tmp;
         }
         public List<Tour> FindByDate(DateTime d)
@@ -90,7 +90,7 @@ namespace KursachLib
                 tmp.AddRange(agencies[i].FindByDate(d));
             }
             if (tmp.Capacity == 0)
-                Console.WriteLine("Nothing found");
+                Console.WriteLine("= Nothing found... =");
             return tmp;
         }
     }
