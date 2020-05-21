@@ -11,7 +11,7 @@ namespace KursachLib
         public string Theme { get => theme; set => theme = value; }
         public double Price { get => price; set => price = value; }
         public DateTime Date { get => date; set => date = value; }
-       
+
         public Tour(string destination, string theme, double price, DateTime date) : base(destination, theme, price, date) { }
         public Tour(string destination, string theme, double price, DateTime date, string addition):base(destination, theme, price, date) { this.addition = addition; }
         
