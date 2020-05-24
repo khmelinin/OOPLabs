@@ -1,4 +1,5 @@
 ﻿using System;
+//variant 13
 
 namespace Lab7Sharp
 {
@@ -6,7 +7,10 @@ namespace Lab7Sharp
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            MyCollection a = new MyCollection("asdf*g#hjk*ghj*");
+            Console.WriteLine(a.FindCount('*'));
+            a.DelAfter('#');
+            Console.WriteLine(a.FindCount('*'));
         }
     }
 }
