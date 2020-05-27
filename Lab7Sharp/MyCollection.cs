@@ -31,6 +31,19 @@ namespace Lab7Sharp
             }
         }
 
+        public override string ToString()
+        {
+            Node current = head;
+            string tmp = "";
+            while (current != null)
+            {
+                tmp += current.Data;
+                current = current.Next;
+            }
+
+            return tmp;
+        }
+        
         public int Count { get => count; }
         public bool IsEmpty { get => count == 0; }
         public void Push(char data)
